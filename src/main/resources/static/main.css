@@ -1,0 +1,41 @@
+a{
+	
+	background-image: linear-gradient(to bottom right, gray, white);
+	border:1px solid black;
+	border-radius:4px;
+	box-shadow: 0 0 2px 2px;
+	box-shadow:gray;
+	font-size:25px;
+	padding:3px;
+}
+
+a:hover{
+	background-image: linear-gradient(to bottom right, #323944, #7f8691);
+	color:white;
+}
+
+body{
+	background-image: url(http://4.bp.blogspot.com/-AwxvUm0_c4s/UhCcv4x9scI/AAAAAAAAo3I/tG_BvRN46-M/s1600/Coffee+Photography+1.jpg)
+}
+
+footer{
+	background-image:linear-gradient(to bottom right, lightgray, white);
+	border:1px solid black;
+	border-radius:4px;
+	margin: 32% 45% 0 46%;
+}
+
+h1{
+	
+	border:4px solid darkbrown;
+	border-radius: 0 0 4px 0;
+	background-image: linear-gradient(to bottom right, brown, tan);
+	color:white;
+	font-size:70px;
+	padding:10px;
+}
+
+p{
+	color:white;
+	font-size:25px;
+}
