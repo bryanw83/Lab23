@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,26 +11,22 @@
 </head>
 <body>
 
-	<h1>Registration Form
+	<h1>Registration Form</h1>
+		<a href="/">Home</a><br><br>
 	
-		<a href="/">Home</a>
-	
-	</h1>
-
 	<div class="container">
-	<form action="/addPerson" method="post">
-		First Name: <input type="text" name="firstname"><br>
-		Last Name: <input type="text" name="lastname"><br>
-		Email: <input type="text" name="email"><br>
-		Phone Number: <input type="text" name="email"><br>
-		Password: <input type="text" name="email"><br>
-		<input class="btn btn-primary" type="submit" value="Add">
-	</form>
+		<form class="formstyle" action="adduser">
+			First Name: <input type="text" name="fname"><br><br>
+			Last Name: <input type="text" name="lname"><br><br>
+			Email: <input type="text" name="email"><br><br>
+			Phone Number: <input type="text" name="phone"><br><br>
+			Password: <input type="text" name="password">
+			<input type="submit" value="Add">
+		</form>
 </div>
 	
 		
 	
 	
-	<script src="script.js"></script>
 </body>
 </html>

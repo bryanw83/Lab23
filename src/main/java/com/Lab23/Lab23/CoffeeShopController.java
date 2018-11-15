@@ -1,49 +1,56 @@
 package com.Lab23.Lab23;
 
-import java.util.ArrayList;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.Lab23.Lab23.entity.users;
+import com.Lab23.Lab23.jpa.CoffeeRepository;
+import com.Lab23.Lab23.jpa.UsersRepository;
+
 
 
 @Controller
 public class CoffeeShopController {
 	
-	@Autowired
-	private Person p;
+//	@Autowired
+//	PersonRepository p;
 	
 	@Autowired
-	CoffeeDao dao;
+	CoffeeRepository c;
+	
+	@Autowired
+	UsersRepository u;
+	
+
 	
 	
 	@RequestMapping("/")
 	public ModelAndView index() {
-		ModelAndView mv = new ModelAndView("index", "firstPage", "");
-		return mv;
-		
+		return new ModelAndView("index", "coffee", c.findAll());
 	}
 	
 	@RequestMapping("/registry")
-		public ModelAndView regPage() {
+	public ModelAndView registry() {
 		return new ModelAndView("registry");
 	}
 	
-	@RequestMapping("/coffee")
-	public ModelAndView listCoffee(@RequestParam(value="name", required=false) String name) {
-		ModelAndView mv = new ModelAndView("/");
-		if(name != null && !name.isEmpty()) {
-			mv.addObject("items", dao.findByName(name));
-			mv.addObject("name", name);
-		} else {
-			mv.addObject("items", dao.findAllItems());
-		}
-		
-		return mv;
+	@RequestMapping("/search")
+	public ModelAndView searchResults(@RequestParam("itemid") Integer id){
+		return new ModelAndView("summary", "results", c.findById(id).orElse(null));
 	}
+	
+	@RequestMapping("/adduser")
+	public ModelAndView addNewUser(@RequestParam("fname")String firstname, @RequestParam("lname")String lastname, @RequestParam("email")String email, @RequestParam("phone")String phonenumber, @RequestParam("password")String password) {
+		users p1 = new users(firstname, lastname, email, phonenumber, password);
+		u.save(p1);
+		return new ModelAndView("redirect:/");
+	}
+	
+	
+	
 	
 	
 	

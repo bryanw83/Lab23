@@ -1,15 +1,28 @@
-package com.Lab23.Lab23;
+package com.Lab23.Lab23.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+//import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+
+@Entity
+//@NamedQuery(name="find_all_items", query="select c from Coffee c")
+@Table(name = "items")
 public class Coffee {
-	
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+
 	private String name;
 	private String description;
 	private int quantity;
 	private double price;
-	private int id;
-	
+
 	public Coffee() {
-		
+
 	}
 
 	public Coffee(String name, String description, int quantity, double price) {
@@ -74,7 +87,5 @@ public class Coffee {
 		return "Coffee [name=" + name + ", description=" + description + ", quantity=" + quantity + ", price=" + price
 				+ ", id=" + id + "]";
 	}
-	
-	
 
 }
